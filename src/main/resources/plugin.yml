@@ -1,9 +1,9 @@
 name: OreAutoSell
-version: @version@
+version: 1.0.0
 main: me.gabrielsantos.minecraft.oreautosell.OreAutoSell
 api-version: 1.17
 prefix: OreAutoSell
-softdepend: [ Vault ]
-authors: [ GabrielSantos ]
+softdepend: [ 'Vault' ]
+authors: [ 'Gabriel Santos#4770' ]
 description: When mining, the drops will be sold automatically.
 website: https://github.com/gabrielbs21
