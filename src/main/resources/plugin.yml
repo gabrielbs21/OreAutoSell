@@ -13,4 +13,4 @@ commands:
       - 'oas'
     description: 'Main command.'
     permission: 'oreautosell.command'
-    permission-message: 'You do not have permission to execute this command.'
+    permission-message: '§cYou do not have permission to execute this command.'

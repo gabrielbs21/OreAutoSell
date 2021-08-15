@@ -29,6 +29,11 @@ public final class OreAutoSellCommand implements CommandExecutor {
         final String argument = args[0];
 
         if (argument.equalsIgnoreCase("reload") || argument.equalsIgnoreCase("rl")) {
+            if (!sender.hasPermission("oreautosell.command.reload")) {
+                sender.sendMessage(ChatColor.RED + "You do not have permission to execute this command");
+                return true;
+            }
+
             final ConfigurationManager configurationManager = plugin.getConfigurationManager();
 
             final String callbackMessage = configurationManager.tryReloadAllAndGiveCallbackMessage();
