@@ -1,0 +1,11 @@
+# permission-based multipliers. base permission: "oreautosell.multiplier.MULTIPLIER"
+# example: "oreautosell.multiplier.vip" -> will activate the
+# multiplier for the player or rank that has this permission
+# if the player or rank does not have any multiplier permissions, the default will be used.
+# if the default multiplier does not exist, the multiplier will be 1x
+
+multipliers:
+  default: 1
+  vip: 1.5
+  vip+: 1.75
+  mvp: 2

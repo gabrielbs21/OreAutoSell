@@ -1,0 +1,7 @@
+# ore prices
+
+prices:
+  DIAMOND_ORE: 35
+  GOLD_ORE: 25
+  IRON_ORE: 12
+  COAL_ORE: 2.5

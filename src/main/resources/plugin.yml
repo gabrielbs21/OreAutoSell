@@ -7,3 +7,10 @@ softdepend: [ 'Vault' ]
 authors: [ 'Gabriel Santos#4770' ]
 description: When mining, the drops will be sold automatically.
 website: https://github.com/gabrielbs21
+commands:
+  oreautosell:
+    aliases:
+      - 'oas'
+    description: 'Main command.'
+    permission: 'oreautosell.command'
+    permission-message: 'You do not have permission to execute this command.'
