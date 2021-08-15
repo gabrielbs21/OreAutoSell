@@ -15,13 +15,15 @@ public final class OreAutoSellCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        System.out.println(label);
+
         if (args.length < 1) {
             sender.sendMessage(
                 "",
                 "§a§lOreAutoSell §8-§7 Help message",
                 "",
-                "§7/oas §8-§f Show this message",
-                "§7/oas reload §8-§f Reload all the configuration files"
+                String.format("§7/%s §8-§f Show this message", label),
+                String.format("§7/%s reload §8-§f Reload all the configuration files", label)
             );
             return true;
         }

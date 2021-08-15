@@ -1,5 +1,6 @@
 package me.gabrielsantos.minecraft.oreautosell.configuration;
 
+import com.google.common.base.Stopwatch;
 import lombok.Data;
 import lombok.SneakyThrows;
 import me.gabrielsantos.minecraft.oreautosell.OreAutoSell;
@@ -9,6 +10,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 @Data(staticConstructor = "of")
 public final class ConfigurationManager {
@@ -41,12 +43,21 @@ public final class ConfigurationManager {
     public String tryReloadAllAndGiveCallbackMessage() {
         final CompletableFuture<String> reloadFuture = CompletableFuture.supplyAsync(() -> {
             try {
+                final Stopwatch timer = Stopwatch.createStarted();
+
                 plugin.reloadConfig();
 
                 this.multipliersConfiguration = loadConfiguration("multipliers.yml");
-                this.pricesConfiguration = loadConfiguration("prices.yml");
+                plugin.getAutoSellManager().loadMultipliers(true);
 
-                return ChatColor.GREEN + "All files was successfully reloaded.";
+                this.pricesConfiguration = loadConfiguration("prices.yml");
+                plugin.getAutoSellManager().loadPrices(true);
+
+                timer.stop();
+
+                return ChatColor.GREEN + String.format("All files was successfully reloaded. (%sms)",
+                    timer.elapsed(TimeUnit.MILLISECONDS)
+                );
             } catch (Throwable t) {
                 t.printStackTrace();
                 return ChatColor.RED + "An error occurred while reloading the settings files.";
